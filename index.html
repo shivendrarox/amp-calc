@@ -84,7 +84,8 @@ Learn how to create your first AMP email. This sample covers the basic structure
           "nine":"9",
           "zero":"0",
 
-          "baz": ""
+          "baz": "",
+          "op1":0
         }
       </script>
      
@@ -93,7 +94,7 @@ Learn how to create your first AMP email. This sample covers the basic structure
         <div class="grid-container">
             <button class="item1">x</button>
             <textarea  [text]="myUpdateState.baz" class="calc-out"></textarea>
-            <button class="item1">x</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{op1:+myUpdateState.baz,baz:0}})">+</button>
             <button value=1 on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.one}})">1</button>
             <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.two}})" >2</button>
             <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.three}})">3</button>
