@@ -1,6 +1,5 @@
 <!--
 ## Introduction
-
 Learn how to create your first AMP email. This sample covers the basic structure of AMP emails.
 -->
 
@@ -24,7 +23,6 @@ Learn how to create your first AMP email. This sample covers the basic structure
 
   <!--
     ### Allowed CSS properties and selectors
-
     All CSS in any AMP document must be included in a `<style amp-custom>` tag within the header as shown above. Inline style attributes are not allowed in AMP.  CSS allowed within email messages vary depending on the email provider. For reference, the list of CSS properties and values allowed in Gmail can be found at [Gmail Supported CSS Properties & Media Queries](https://developers.google.com/gmail/design/reference/supported_css).
   -->
   <style amp-custom>
@@ -86,7 +84,8 @@ Learn how to create your first AMP email. This sample covers the basic structure
 
           "baz": "0",
           "op1":0,
-          "ans":0
+          "ans":0,
+          "opp":""
         }
       </script>
      
@@ -97,15 +96,25 @@ Learn how to create your first AMP email. This sample covers the basic structure
   arguments="a,b"
   expression="+a + +b"
 ></amp-bind-macro>
+<amp-bind-macro
+  id="subNums"
+  arguments="a,b"
+  expression="+a - +b"
+></amp-bind-macro>
+<amp-bind-macro
+  id="calc"
+  arguments="a,b,c"
+  expression="(c=='add')?addNums(a,b):(c=='sub')?subNums(b,a):1"
+></amp-bind-macro>
     
         <div class="grid-container">
             <button class="item1">x</button>
             <textarea  [text]="myUpdateState.baz" class="calc-out"></textarea>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{op1:+myUpdateState.baz,baz:0}})">+</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{op1:+myUpdateState.baz,baz:0,opp:'add'}})">+</button>
             <button value=1 on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.one}})">1</button>
             <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.two}})" >2</button>
             <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.three}})">3</button>
-            <button class="item1">x</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{op1:+myUpdateState.baz,baz:0,opp:'sub'}})">-</button>
             <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.four}})">4</button>
             <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.five}})">5</button>
             <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.six}})">6</button>
@@ -116,7 +125,7 @@ Learn how to create your first AMP email. This sample covers the basic structure
             <button class="item1">x</button>
             <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.six}})">6</button>
             <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.zero}})">0</button>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz:addNums(myUpdateState.baz,myUpdateState.op1)}})">=</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz:calc(myUpdateState.baz,myUpdateState.op1,myUpdateState.opp)}})">=</button>
 
           </div>
 
