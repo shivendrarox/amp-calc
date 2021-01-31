@@ -73,7 +73,17 @@ Learn how to create your first AMP email. This sample covers the basic structure
     <amp-state id="myUpdateState">
       <script type="application/json">
         {
-          "foo": "1",
+          "one": "1",
+          "two": "2",
+          "three":"3",
+          "four":"4",
+          "five":"5",
+          "seven":"7",
+          "six":"6",
+          "eight":"8",
+          "nine":"9",
+          "zero":"0",
+
           "baz": ""
         }
       </script>
@@ -84,21 +94,21 @@ Learn how to create your first AMP email. This sample covers the basic structure
             <button class="item1">x</button>
             <textarea  [text]="myUpdateState.baz" class="calc-out"></textarea>
             <button class="item1">x</button>
-            <button value=1 on="tap:AMP.setState({myUpdateState:{foo:+event.value}});tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.foo}})">1</button>
+            <button value=1 on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.one}})">1</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.two}})" >2</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.three}})">3</button>
             <button class="item1">x</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.four}})">4</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.five}})">5</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.six}})">6</button>
             <button class="item1">x</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.seven}})">7</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.eight}})">8</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.nine}})">9</button>
             <button class="item1">x</button>
-            <button class="item1">x</button>
-            <button class="item1">x</button>
-            <button class="item1">x</button>
-            <button class="item1">x</button>
-            <button class="item1">x</button>
-            <button class="item1">x</button>
-            <button class="item1">x</button>
-            <button class="item1">x</button>
-            <button class="item1">x</button>
-            <button class="item1">x</button>
-            <button class="item1">x</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.six}})">6</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.zero}})">0</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.six}})">6</button>
 
           </div>
 
