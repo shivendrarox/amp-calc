@@ -16,6 +16,8 @@ Learn how to create your first AMP email. This sample covers the basic structure
   <meta charset="utf-8">
   <!-- The AMP runtime.-->
   <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+
   <!-- The AMP for Email boilerplate.  -->
   <style amp4email-boilerplate>body{visibility:hidden}</style>
   <!-- Import AMP components in the header, for example the `amp-carousel` component. -->
@@ -32,7 +34,7 @@ Learn how to create your first AMP email. This sample covers the basic structure
     .grid-container {
   display: grid;
   grid-template-columns:auto auto auto auto;
-  grid-gap: 10px;
+  gap: 10px;
   background-color: #2196F3;
   padding: 10px;
   margin-left: 20%;
@@ -67,16 +69,22 @@ Learn how to create your first AMP email. This sample covers the basic structure
       Just like in AMP web pages, most HTML tags can be used directly.
     -->
     <h1 >calculator</h1>
-    <!--
-      Certain tags, such as the `<img>` tag, are replaced with equivalent or slightly enhanced custom AMP HTML tags (see [HTML Tags in the specification](https://github.com/ampproject/amphtml/blob/master/spec/amp-html-format.md)).
-    -->
+      
+    <amp-state id="myUpdateState">
+      <script type="application/json">
+        {
+          "foo": "1",
+          "baz": ""
+        }
+      </script>
+     
+    </amp-state>
     
-    <!--
-    Important: URLs most use absolute paths in AMP for Email.-->
-   <!-- create calc body -->
         <div class="grid-container">
             <button class="item1">x</button>
-            <div class="calc-out">0</div>
+            <textarea  [text]="myUpdateState.baz" class="calc-out"></textarea>
+            <button class="item1">x</button>
+            <button value=1 on="tap:AMP.setState({myUpdateState:{foo:+event.value}});tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.foo}})">1</button>
             <button class="item1">x</button>
             <button class="item1">x</button>
             <button class="item1">x</button>
@@ -91,9 +99,6 @@ Learn how to create your first AMP email. This sample covers the basic structure
             <button class="item1">x</button>
             <button class="item1">x</button>
             <button class="item1">x</button>
-            <button class="item1">x</button>
-            <button class="item1">x</button>
-
 
           </div>
 
