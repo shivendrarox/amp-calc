@@ -26,8 +26,8 @@ Learn how to create your first AMP email. This sample covers the basic structure
     All CSS in any AMP document must be included in a `<style amp-custom>` tag within the header as shown above. Inline style attributes are not allowed in AMP.  CSS allowed within email messages vary depending on the email provider. For reference, the list of CSS properties and values allowed in Gmail can be found at [Gmail Supported CSS Properties & Media Queries](https://developers.google.com/gmail/design/reference/supported_css).
   -->
   <style amp-custom>
-    .emailbody {
-      padding: 16px;
+    h1 {
+      text-align: center;
     }
     .grid-container {
   display: grid;
@@ -66,7 +66,7 @@ Learn how to create your first AMP email. This sample covers the basic structure
     <!--
       Just like in AMP web pages, most HTML tags can be used directly.
     -->
-    <h1 >calculator</h1>
+    <h1 >Calculator</h1>
       
     <amp-state id="myUpdateState">
       <script type="application/json">
@@ -84,7 +84,6 @@ Learn how to create your first AMP email. This sample covers the basic structure
           "decimal":".",
           "baz": "0",
           "op1":0,
-          "ans":0,
           "opp":""
         }
       </script>
@@ -114,7 +113,7 @@ Learn how to create your first AMP email. This sample covers the basic structure
 <amp-bind-macro
   id="calc"
   arguments="a,b,c"
-  expression="(c=='div')?divNums(b,a):(c=='mult')?multNums(a,b):(c=='add')?addNums(a,b):(c=='sub')?subNums(b,a):null"
+  expression="(c=='div')?divNums(b,a):(c=='mult')?multNums(a,b):(c=='add')?addNums(a,b):(c=='sub')?subNums(b,a):'error'"
 ></amp-bind-macro>
     
         <div class="grid-container">
