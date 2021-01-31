@@ -84,12 +84,19 @@ Learn how to create your first AMP email. This sample covers the basic structure
           "nine":"9",
           "zero":"0",
 
-          "baz": "",
-          "op1":0
+          "baz": "0",
+          "op1":0,
+          "ans":0
         }
       </script>
      
     </amp-state>
+  
+  <amp-bind-macro
+  id="addNums"
+  arguments="a,b"
+  expression="+a + +b"
+></amp-bind-macro>
     
         <div class="grid-container">
             <button class="item1">x</button>
@@ -109,7 +116,7 @@ Learn how to create your first AMP email. This sample covers the basic structure
             <button class="item1">x</button>
             <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.six}})">6</button>
             <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.zero}})">0</button>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.six}})">6</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz:addNums(myUpdateState.baz,myUpdateState.op1)}})">=</button>
 
           </div>
 
