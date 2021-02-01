@@ -117,7 +117,7 @@ Learn how to create your first AMP email. This sample covers the basic structure
     
         <div class="grid-container">
             <button class="item1" on="tap:AMP.setState({myUpdateState:{op1:0,baz:0,opp:''}})">C</button>
-            <textarea  [text]="myUpdateState.baz" class="calc-out"></textarea>
+            <textarea  [text]="myUpdateState.baz" class="calc-out">0</textarea>
             <button class="item1" on="tap:AMP.setState({myUpdateState:{op1:+myUpdateState.baz,baz:0,opp:'add'}})">+</button>
             <button value=1 on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.one}})">1</button>
             <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.two}})" >2</button>
