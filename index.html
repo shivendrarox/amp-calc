@@ -81,8 +81,8 @@ Learn how to create your first AMP email. This sample covers the basic structure
           "nine":"9",
           "zero":"0",
           "decimal":".",
-          "baz": "0",
-          "op1":0,
+          "calcOut": "0",
+          "lastVal":0,
           "opp":""
         }
       </script>
@@ -116,24 +116,24 @@ Learn how to create your first AMP email. This sample covers the basic structure
 ></amp-bind-macro>
     
         <div class="grid-container">
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{op1:0,baz:0,opp:''}})">C</button>
-            <textarea  [text]="myUpdateState.baz" class="calc-out">0</textarea>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{op1:+myUpdateState.baz,baz:0,opp:'add'}})">+</button>
-            <button value=1 on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.one}})">1</button>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.two}})" >2</button>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.three}})">3</button>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{op1:+myUpdateState.baz,baz:0,opp:'sub'}})">-</button>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.four}})">4</button>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.five}})">5</button>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.six}})">6</button>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{op1:+myUpdateState.baz,baz:0,opp:'mult'}})">x</button>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.seven}})">7</button>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.eight}})">8</button>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.nine}})">9</button>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{op1:+myUpdateState.baz,baz:0,opp:'div'}})">/</button>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.decimal}})">.</button>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz: myUpdateState.baz+myUpdateState.zero}})">0</button>
-            <button class="item1" on="tap:AMP.setState({myUpdateState:{baz:calc(myUpdateState.baz,myUpdateState.op1,myUpdateState.opp)}})">=</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{lastVal:0,calcOut:0,opp:''}})">C</button>
+            <textarea  [text]="myUpdateState.calcOut" class="calc-out">0</textarea>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{lastVal:+myUpdateState.calcOut,calcOut:0,opp:'add'}})">+</button>
+            <button value=1 on="tap:AMP.setState({myUpdateState:{calcOut: myUpdateState.calcOut+myUpdateState.one}})">1</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{calcOut: myUpdateState.calcOut+myUpdateState.two}})" >2</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{calcOut: myUpdateState.calcOut+myUpdateState.three}})">3</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{lastVal:+myUpdateState.calcOut,calcOut:0,opp:'sub'}})">-</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{calcOut: myUpdateState.calcOut+myUpdateState.four}})">4</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{calcOut: myUpdateState.calcOut+myUpdateState.five}})">5</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{calcOut: myUpdateState.calcOut+myUpdateState.six}})">6</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{lastVal:+myUpdateState.calcOut,calcOut:0,opp:'mult'}})">x</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{calcOut: myUpdateState.calcOut+myUpdateState.seven}})">7</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{calcOut: myUpdateState.calcOut+myUpdateState.eight}})">8</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{calcOut: myUpdateState.calcOut+myUpdateState.nine}})">9</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{lastVal:+myUpdateState.calcOut,calcOut:0,opp:'div'}})">/</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{calcOut: myUpdateState.calcOut+myUpdateState.decimal}})">.</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{calcOut: myUpdateState.calcOut+myUpdateState.zero}})">0</button>
+            <button class="item1" on="tap:AMP.setState({myUpdateState:{calcOut:calc(myUpdateState.calcOut,myUpdateState.lastVal,myUpdateState.opp)}})">=</button>
 
           </div>
 
